@@ -1,9 +1,22 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, EmailStr
+import datetime as _dt
 
-class User(BaseModel):
-	username:str
-	password:str
-	email:str
+class _UserBase(BaseModel):
+    email: str
+
+class UserCreate(_UserBase):
+    password: str
+
+    class Config:
+        orm_mode = True
+
+class User(_UserBase):
+    id: int
+    date_created: _dt.datetime
+
+    class Config:
+        orm_mode = True
+
 
 class Plan(BaseModel):
     Quarter:int
