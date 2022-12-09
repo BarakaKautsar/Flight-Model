@@ -1,0 +1,6 @@
+joblib==1.2.0
+pandas==1.5.2
+pydantic==1.7
+uvicorn==0.12.2
+fastapi==0.61.1
+scikit-learn==1.1.3
